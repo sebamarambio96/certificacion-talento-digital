@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isekai News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="btnLogin.js"></script>
+    <script defer src="./js/news.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="collapse navbar-collapse bd-highlight" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="1">Juegos</a></li>
+                            <li><a class="dropdown-item" id="2">Anime</a></li>
+                            <li><a class="dropdown-item" id="3">Japón</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item">Todas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="me-5" id="loginContainer">
+                <!-- MY ACCOUNT / LOGIN -->
+                <a href="/login.html"><button type="button" class="btn btn-dark botonLogin ">Ingresa</button></a>
+            </div>
+        </nav>
+    </header>
+    <main class="d-flex align-items-center vh-75">
+        <div class="container">
+            <div class="row align-items-center rounded-3">
+                <div class="col-lg-8 p-3 p-lg-5 pt-lg-3 mt-5">
+                    <h1 class="display-4 fw-bold lh-1 pb-5">Informate y opina, <br> <span
+                            class="colorFont">Isekai NEWS</span>
+                    </h1>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ullam expedita, nihil
+                        molestiae ratione non itaque esse magni optio amet distinctio numquam sunt deserunt vel
+                        explicabo dolor quasi placeat, repellendus, dicta error nostrum.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 py-4">
+                        <a href="#postear"><button type="button"
+                                class="btn btn-primary btn-lg px-4 my-4 me-md-2 fw-bold botonEstilo">Crear
+                                Noticia</button></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 shadow-lg d-flex justify-content-center">
+                    <img class="imgHero" src="/img/hero.jfif" alt="Konosuba">
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="vh-100 bg-light d-flex flex-column align-items-center" id="postear">
+        <h1 class="py-3 ps-3 fw-bold colorFont"> Postea tu propia noticia!</h1>
+        <div class="w-50">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="tittle"
+                    placeholder="Japón: Un acosador de porristas se rompió una pierna al intentar escapar"
+                    maxlength="60">
+            </div>
+            <select class="form-select" id="category_idForm" aria-label="Default select example">
+                <option selected>Categorías</option>
+                <option value="1">Juegos</option>
+                <option value="2">Anime</option>
+                <option value="3">Japón</option>
+            </select>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Cuerpo de la noticia:</label>
+                <textarea class="form-control" id="body" rows="8" maxlength="4000"></textarea>
+            </div>
+            <div class="m-3">
+                <label for="profileImg" class=" fw-bold my-2">Imagen de portada: &nbsp;</label>
+                <Input type="file" name="profileImg" id="newsImg" accept="image/*">
+                <button type="button" class="btn btn-dark" id="btnAddNews">&nbsp;&nbsp;POSTEAR!&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </section>
+    <section class="vh-100 bg-secondary ">
+        <h1 class="py-3 ps-3 fw-bold colorFont text-center"> Noticias</h1>
+        <div id="containerNews" class="d-flex align-items-center gap-3">
+            <!-- News CARDs -->
+        </div>
+
+        <template id="templateCards">
+            <div class="card d-flex flex-column align-items-center" style="width: 24rem;">
+                <div class="containerImageFeed ">
+                    <img src="./img/hero.jfif" class="card-img-top imgNewsFeed" alt="..." id="imgCard">
+                </div>
+                
+                <div class="card-body w-100">
+                    <h5 class="card-title colorFont" id="categoryCard">Categoria</h5>
+                    <h2 class="card-title"><a href="#postear" id="titleCard">Titulo</a></h2>
+                    <h7 class="card-title fst-italic fw-light" id="authorCard">Autor</h7>
+                </div>
+            </div>
+        </template>
+    </section>
+    <footer class="container-fluid py-5 backStyleFooter fontNormal bg-dark">
+        <div class="row">
+            <div class="col-12 col-md gap-2">
+                <small class="d-block mb-3 text-muted">&copy; Sebastián Marambio 2023</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Contacto</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class='text-info' href="https://www.linkedin.com/in/sebamarambio/" target="_blank">Linkedin</a></li>
+                    <li><a class='text-info' href="https://github.com/sebamarambio96/" target="_blank">Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<!-- MY ACCOUNT -->
+<template id="templateMA">
+    <div class="dropdown botonLogin">
+        <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Mi cuenta
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <!-- <li><a class="dropdown-item text-secondary" href="./myAccount.html">Mis Datos</a></li> -->
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><button class="dropdown-item text-danger" id="signOut" type="button" href="#">Cerrar
+                    sesión</button>
+            </li>
+        </ul>
+    </div>
+</template>
+<!-- btnLogin -->
+<template id="templateBtnLogin">
+    <a href="/login.html"><button type="button" class="btn btn-dark botonLogin">Ingresa</button></a>
+</template>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+</html>
