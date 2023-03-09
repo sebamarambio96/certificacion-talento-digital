@@ -22,7 +22,11 @@ function addNews() {
             })
         } else {
             let token = JSON.parse(localStorage.getItem('token'))
+<<<<<<< HEAD
             const res = await fetch(`https://isekainews.up.railway.app/news/`, {
+=======
+            const res = await fetch(`http://localhost:3000/news/`, {
+>>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
                 method: 'POST',
                 headers: {
                     "Accept": "application/json",
@@ -55,7 +59,11 @@ function addNews() {
                     Swal.fire({
                         icon: 'error',
                         title: 'Ops!',
+<<<<<<< HEAD
                         text: `Error, recuerda iniciar sesion`
+=======
+                        text: `Error, revisa el formulario.`
+>>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
                     })
                 }
             }
@@ -67,7 +75,11 @@ addNews()
 
 function renderCards() {
     console.log('first')
+<<<<<<< HEAD
     fetch("https://isekainews.up.railway.app/allnews")
+=======
+    fetch("http://localhost:3000/allnews")
+>>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
         .then((resp) => resp.json())
         .then(data => {
             console.log(data)
