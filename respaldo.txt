@@ -1,0 +1,9 @@
+
+
+{
+"username": "Seba1",
+"password": "1234556"
+}
+
+INSERT INTO categories(id, "nameCategory")
+VALUES (default, "Juegos"),(default,"Anime"),(default, "Japón")
