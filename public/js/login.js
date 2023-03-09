@@ -17,11 +17,7 @@ function login() {
                 text: 'Debes rellenar todos los campos!'
             })
         } else {
-<<<<<<< HEAD
             fetch(`https://isekainews.up.railway.app/login/`, {
-=======
-            fetch(`http://localhost:3000/login/`, {
->>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'

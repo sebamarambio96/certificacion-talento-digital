@@ -1,11 +1,7 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 function renderNews() {
     const id = urlSearchParams.get("id");
-<<<<<<< HEAD
     fetch(`https://isekainews.up.railway.app/newss/${id}`)
-=======
-    fetch(`http://localhost:3000/newss/${id}`)
->>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
         .then((resp) => resp.json())
         .then(news => {
             console.log(news)
@@ -21,11 +17,7 @@ function renderNews() {
             bodyNews.textContent = news.body
             categoryNews.textContent = categories[news.category_id - 1]
             tittleNews.textContent = news.tittle
-<<<<<<< HEAD
             fetch(`https://isekainews.up.railway.app/users/${news.author}`)
-=======
-            fetch(`http://localhost:3000/users/${news.author}`)
->>>>>>> 877011aef818f3617976fdec3fdfef0d34cb15df
                 .then((resp) => resp.json())
                 .then(user => {
                     console.log(user)
